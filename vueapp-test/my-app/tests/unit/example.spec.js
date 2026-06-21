@@ -1,0 +1,31 @@
+import { shallowMount } from "@vue/test-utils";
+
+const MessageComponent = {
+
+  template: "<div>{{ msg }}</div>",
+
+  props: ["msg"]
+
+};
+
+describe("MessageComponent", () => {
+
+  it("renders message", () => {
+
+    const msg = "Hello World";
+
+    const wrapper = shallowMount(
+      MessageComponent,
+      {
+        propsData: {
+          msg
+        }
+      }
+    );
+
+    expect(wrapper.text())
+      .toMatch(msg);
+
+  });
+
+});
